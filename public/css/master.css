@@ -1,6 +1,7 @@
 body {
-  background: #495867;
+  background: #114B5F;
   color: #FFFFFF;
+  font-family: 'Quicksand', sans-serif;
 }
 
 #login-user-form,
@@ -18,7 +19,7 @@ body {
 
 #login-button:hover,
 #create-account-button:hover {
-  background: #495867;
+  background: #F45B69;
   color: #FFFFFF;
 }
 
@@ -27,10 +28,15 @@ a {
 }
 
 a:hover {
-  color: #75B8C8;
+  color: #F45B69;
   text-decoration: none;
 }
 
 #error-message {
   display: none;
+}
+
+.col-centered {
+  float: none;
+  margin: 0 auto;
 }

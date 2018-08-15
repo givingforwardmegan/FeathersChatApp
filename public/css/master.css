@@ -1,0 +1,36 @@
+body {
+  background: #495867;
+  color: #FFFFFF;
+}
+
+#login-user-form,
+#new-user-form {
+  color: black;
+  background: #FFFFFF;
+  border-radius: 5px;
+  padding: 12px;
+}
+
+#login-button,
+#create-account-button {
+  background: #75B8C8;
+}
+
+#login-button:hover,
+#create-account-button:hover {
+  background: #495867;
+  color: #FFFFFF;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  color: #75B8C8;
+  text-decoration: none;
+}
+
+#error-message {
+  display: none;
+}

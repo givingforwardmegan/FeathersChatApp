@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Chat Application</title>
+  <!-- Boostrap 3 -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./css/index.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="pull-right">
+        <span id="logout-icon" title="Logout">
+          <i class="fa fa-sign-out" aria-hidden="true"></i>
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="app-title">
+        <h2 class="center-text">Feathers Chat Application</h2>
+      </div>
+    </div>
+    <div class="row">
+      <!-- left content area -->
+      <div class="col-md-3 margin-top">
+        <div class="media">
+          <div class="media-left media-middle">
+            <a href="#">
+              <img src="./images/icon.png" alt="32x32 user profile image" class="media-object" style="width: 32px; height: 32px;">
+            </a>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">Megan Cole</h4>
+          </div>
+        </div>
+        <div class="media">
+          <div class="media-left media-middle">
+            <a href="#">
+              <img src="./images/icon2.png" alt="32x32 user profile image" class="media-object" style="width: 32px; height: 32px;">
+            </a>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">John Smith</h4>
+          </div>
+        </div>
+      </div>
+      <!-- END left content area -->
+
+      <!-- right content area -->
+      <div class="col-md-9 margin-top main-border">
+        <div id="chat-message-area">
+          <div class="media">
+            <div class="media-left">
+              <a href="#">
+                <img src="./images/icon.png" alt="64x64 user profile image" class="media-object" style="width: 64px; height: 64px;">
+              </a>
+            </div>
+            <div class="media-body">
+              <div class="pull-right">
+                <span class="delete-comment" title="Delete Comment?">
+                  <i class="fa fa-times" aria-hidden="true"></i>
+                </span>
+              </div>
+              <h4 class="media-heading">Megan Cole</h4>
+              <span class="comment-date">08-02-2018 9:00 AM</span>
+              <br/>
+              <br/> Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos similique enim saepe dolore quibusdam corrupti,
+              cumque quis neque laudantium reiciendis accusamus nostrum alias fugiat quo id assumenda aliquid beatae harum.
+            </div>
+          </div>
+
+          <div class="media">
+            <div class="media-left">
+              <a href="#">
+                <img src="./images/icon.png" alt="64x64 user profile image" class="media-object" style="width: 64px; height: 64px;">
+              </a>
+            </div>
+            <div class="media-body">
+              <div class="pull-right">
+                <span class="delete-comment" title="Delete Comment?">
+                  <i class="fa fa-times" aria-hidden="true"></i>
+                </span>
+              </div>
+              <h4 class="media-heading">Megan Cole</h4>
+              <span class="comment-date">08-02-2018 9:01 AM</span>
+              <br/>
+              <br/> Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos similique enim saepe dolore quibusdam corrupti,
+              cumque quis neque laudantium reiciendis accusamus nostrum alias fugiat quo id assumenda aliquid beatae harum.
+            </div>
+          </div>
+        </div>
+        <div class="margin-top">
+          <form id="submit-message-form">
+            <textarea id="msg-text" class="form-control" rows="3" placeholder="Enter Message"></textarea>
+            <button class="btn btm-primary pull-right margin-top">Send</button>
+          </form>
+        </div>
+      </div>
+      <!-- END right content area -->
+
+    </div>
+  </div>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+  <!-- FeathersJS -->
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/core-js/2.1.4/core.min.js"></script>
+  <script src="//unpkg.com/@feathersjs/client@^3.0.0/dist/feathers.js"></script>
+  <script src="//unpkg.com/socket.io-client@1.7.3/dist/socket.io.js"></script>
+
+  <!-- Custom -->
+  <script src="./js/index.js"></script>
+</body>
+
+</html>

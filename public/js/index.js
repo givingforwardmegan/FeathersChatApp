@@ -20,6 +20,21 @@ $(document).ready(function () {
   var messagesService = client.service("/messages");
 
 
+  var getMessages = async () => {
+    var messages = await messagesService.find();
+
+    var htmlMessages = messages.data.map((message) => {
+      return new Message(message.text).getMessageHtmlString();
+    });
+
+    if (htmlMessages.length < 1) {
+      alert("No Messages to Retrieve. Start the conversation now!");
+    }
+    console.log(messages);
+    return messages
+  };
+
+
   /* Messages class - handle all messages */
   class Message {
     constructor(msgText) {
@@ -61,6 +76,8 @@ $(document).ready(function () {
     .then((response) => {
       //client is authenticated
 
+      getMessages();
+
       $('#logout-icon').on('click', function () {
         client.logout();
         window.location.href = `${serverURL}/login.html`;
@@ -69,7 +86,7 @@ $(document).ready(function () {
 
       /* create new message */
       $('#submit-message-form').submit(function (e) {
-        e.preventDefault;
+        e.preventDefault();
 
         var $msgText = $('#msg-text');
         var msgText = $msgText.val();
@@ -90,8 +107,13 @@ $(document).ready(function () {
         var msgText = message.text;
         var newMessage = new Message(msgText);
 
-        console.log(newMessage.getMessageHtmlString());
+        //console.log(newMessage.getMessageHtmlString());
         $('#chat-message-area').append(newMessage.getMessageHtmlString());
+
+        //animate the user window down when new message are added
+        $('html, body').animate({
+          scrollTop: $(document).height()
+        }, "slow");
 
       });
 
@@ -100,7 +122,5 @@ $(document).ready(function () {
       console.log(err);
       window.location.href = `${serverURL}/login.html`;
     });
-
-
 
 });

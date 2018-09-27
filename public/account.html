@@ -20,20 +20,23 @@
     <div class="row">
       <div class="col-md-3 col-centered">
         <h3>Create New Account</h3>
-        <br/>
+        <br />
         <form id="new-user-form">
+          <label>Username</label>
+          <input id="username" type="text" class="form-control" name="username" placeholder="Enter your username">
+          <br />
           <label>Email</label>
           <input id="user-email" type="text" class="form-control" name="email" placeholder="Enter your email">
-          <br/>
+          <br />
           <label>Password</label>
           <input id="user-password" type="password" class="form-control" name="password" placeholder="Enter your password">
-          <br/>
+          <br />
           <a href="/login.html">Already have an account? Login here!</a>
-          <br/>
-          <br/>
+          <br />
+          <br />
           <input id="create-account-button" type="submit" value="Create" class="btn">
         </form>
-        <br/>
+        <br />
         <div class="alert alert-danger" id="error-message">
           There was an error processing your request. Boo!
         </div>

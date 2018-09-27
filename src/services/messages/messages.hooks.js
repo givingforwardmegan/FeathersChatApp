@@ -1,9 +1,6 @@
-const {
-  authenticate
-} = require('@feathersjs/authentication').hooks;
-const {
-  setNow
-} = require('feathers-hooks-common');
+const { authenticate } = require('@feathersjs/authentication').hooks;
+const { setNow } = require('feathers-hooks-common');
+const hooks = require('feathers-authentication-hooks');
 
 
 module.exports = {
@@ -12,11 +9,12 @@ module.exports = {
     find: [],
     get: [],
     create: [
-      setNow('createdAt')
+      setNow('createdAt'),
+      hooks.associateCurrentUser()
     ],
-    update: [],
-    patch: [],
-    remove: []
+    update: [hooks.restrictToOwner()],
+    patch: [hooks.restrictToOwner()],
+    remove: [hooks.restrictToOwner()]
   },
 
   after: {

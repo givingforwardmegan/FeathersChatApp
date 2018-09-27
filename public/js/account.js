@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   var serverURL = "http://localhost:3030";
 
   /* feathers boilerplate to connec to users service */
@@ -24,21 +24,21 @@ $(document).ready(function() {
   function getCredentials() {
     var user = {
       email: $("#user-email").val(),
-      password: $("#user-password").val()
+      password: $("#user-password").val(),
+      username: $('#username').val()
     };
 
     return user;
   }
 
   /* handle form submission */
-  $("#new-user-form").submit(function(e) {
+  $("#new-user-form").submit(function (e) {
     e.preventDefault();
 
     var userCredentials = getCredentials();
 
     //create a new user using the feathers client
-    usersService
-      .create(userCredentials)
+    usersService.create(userCredentials)
       .then(res => {
         console.log(res);
         //if promise successful, redirect to login page

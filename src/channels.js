@@ -9,12 +9,12 @@ module.exports = function (app) {
     app.channel('anonymous').join(connection);
   });
 
-  app.on('login', (authResult, {
-    connection
-  }) => {
+  app.on('login', (authResult, { connection }) => {
     // connection can be undefined if there is no
     // real-time connection, e.g. when logging in via REST
     if (connection) {
+      var { user } = connection;
+
       // Obtain the logged in user from the connection
       // const user = connection.user;
 
@@ -23,6 +23,11 @@ module.exports = function (app) {
 
       // Add it to the authenticated user channel
       app.channel('authenticated').join(connection);
+
+      //handle updating user record to show they are online
+      if (!user.isOnline) {
+        app.service('users').patch(user._id, { isOnline: true });
+      }
 
       // Channels can be named anything and joined on any condition 
 
@@ -35,6 +40,20 @@ module.exports = function (app) {
       // Easily organize users by email and userid for things like messaging
       // app.channel(`emails/${user.email}`).join(channel);
       // app.channel(`userIds/$(user.id}`).join(channel);
+    }
+  });
+
+  app.on('logout', (authResult, { connection }) => {
+    if (connection) {
+      var { user } = connection;
+
+      console.log(user);
+
+      if (user.isOnline) {
+        console.log('before ' + user.isOnline);
+        app.service('users').patch(user._id, { isOnline: false });
+        console.log('after ' + user.isOnline);
+      }
     }
   });
 
